@@ -1,0 +1,157 @@
+{
+  "run_at": "2026-09-01T10:07:10.389101+00:00",
+  "model": "gemini-3.5-flash",
+  "total": 18,
+  "correct": 18,
+  "accuracy": 1.0,
+  "false_negatives": [],
+  "false_negative_rate": 0.0,
+  "false_positives": [],
+  "errors": [],
+  "results": [
+    {
+      "id": "S1",
+      "expected": "safe",
+      "actual": "safe",
+      "correct": true,
+      "reason": "The post explicitly uses a fictional composite character instead of a named individual, does not name a private company, and only mentions government agencies (POCB and DMW) in a positive, factual context without any accusations of wrongdoing.",
+      "error": null
+    },
+    {
+      "id": "S2",
+      "expected": "safe",
+      "actual": "safe",
+      "correct": true,
+      "reason": "The post uses a purely fictional composite character ('Jana'), discusses a general wage increase and court order without naming any specific private company, individual, or government agency, and contains no allegations of corruption or wrongdoing.",
+      "error": null
+    },
+    {
+      "id": "S3",
+      "expected": "safe",
+      "actual": "safe",
+      "correct": true,
+      "reason": "The post explicitly states that 'Mark' is a composite and not a real individual. It does not name a specific private company or individual, nor does it assert any factual claims of wrongdoing, corruption, or fraud. Therefore, it is safe to auto-publish.",
+      "error": null
+    },
+    {
+      "id": "S4",
+      "expected": "safe",
+      "actual": "safe",
+      "correct": true,
+      "reason": "The post uses a fictional composite character named Diane and discusses returning to the office in a neutral, observational tone without naming any private companies or accusing anyone of wrongdoing.",
+      "error": null
+    },
+    {
+      "id": "S5",
+      "expected": "safe",
+      "actual": "safe",
+      "correct": true,
+      "reason": "The post explicitly states that 'Ana' is a composite and not a real person, and mentions TechNova Philippines in a positive context regarding a hybrid work policy with no accusations or wrongdoing.",
+      "error": null
+    },
+    {
+      "id": "S6",
+      "expected": "safe",
+      "actual": "safe",
+      "correct": true,
+      "reason": "The post uses a purely composite character ('Ben') and neutrally mentions the labor department without naming a specific private company or individual, nor does it assert corruption, fraud, or wrongdoing.",
+      "error": null
+    },
+    {
+      "id": "S7",
+      "expected": "safe",
+      "actual": "safe",
+      "correct": true,
+      "reason": "The post discusses a composite character and mentions a general industry development involving a tripartite subcommittee without naming any specific private company, individual person, or alleging any corruption, fraud, or wrongdoing.",
+      "error": null
+    },
+    {
+      "id": "S8",
+      "expected": "safe",
+      "actual": "safe",
+      "correct": true,
+      "reason": "The post discusses gig worker protections generally using a fictional composite character ('Dodong') and does not name any specific individual, private company, or allege specific wrongdoing.",
+      "error": null
+    },
+    {
+      "id": "S9",
+      "expected": "safe",
+      "actual": "safe",
+      "correct": true,
+      "reason": "The post explicitly states that 'Ella' is a composite and not a real individual, and it discusses wage order compliance generally without naming any specific private company or attributing corruption, fraud, or specific wrongdoing.",
+      "error": null
+    },
+    {
+      "id": "R1",
+      "expected": "risky",
+      "actual": "risky",
+      "correct": true,
+      "reason": "Backstop keyword match: bribery. LLM: The post names a specific individual (Secretary Juan Dela Cruz) and attributes a specific claim of bribery and corruption to them, which triggers the risk criteria.",
+      "error": null
+    },
+    {
+      "id": "R2",
+      "expected": "risky",
+      "actual": "risky",
+      "correct": true,
+      "reason": "The post names a specific private company (BuildRight Construction Corp) and attributes a negative action and wrongdoing (unpaid wages and executives paying themselves bonuses during cash flow issues) to them, which triggers the risk criteria.",
+      "error": null
+    },
+    {
+      "id": "R3",
+      "expected": "risky",
+      "actual": "risky",
+      "correct": true,
+      "reason": "Backstop keyword match: corruption. LLM: The post asserts factual claims of corruption in the awarding of government infrastructure contracts, which triggers the risk criteria.",
+      "error": null
+    },
+    {
+      "id": "R4",
+      "expected": "risky",
+      "actual": "risky",
+      "correct": true,
+      "reason": "The post names a specific individual (Mayor Reyes) and attributes a negative official action (personally ordering the shutdown of a shuttle service with no notice) to them, which triggers the requirement for human review to mitigate defamation or libel risks.",
+      "error": null
+    },
+    {
+      "id": "R5",
+      "expected": "risky",
+      "actual": "risky",
+      "correct": true,
+      "reason": "Backstop keyword match: illegal. LLM: The post names a specific private company (StaffPro Philippines) and attributes a negative action and wrongdoing (an illegal 'no work, no pay' scheme violating minimum wage law) to them.",
+      "error": null
+    },
+    {
+      "id": "R6",
+      "expected": "risky",
+      "actual": "risky",
+      "correct": true,
+      "reason": "Backstop keyword match: anomalous. LLM: The post names a specific private company, GreenLeaf Manpower Services, and attributes negative actions including anomalous financial dealings and complaints from unpaid workers, which triggers the risk criteria for private companies.",
+      "error": null
+    },
+    {
+      "id": "R7",
+      "expected": "risky",
+      "actual": "risky",
+      "correct": true,
+      "reason": "The post names a specific private company, JobLink Staffing, and attributes a negative action, wrongdoing, or controversy (allegedly defrauding applicants) to it.",
+      "error": null
+    },
+    {
+      "id": "R8",
+      "expected": "risky",
+      "actual": "risky",
+      "correct": true,
+      "reason": "The post asserts a factual claim of wrongdoing, specifically embezzling worker contributions, which triggers the risk criteria.",
+      "error": null
+    },
+    {
+      "id": "R9",
+      "expected": "risky",
+      "actual": "risky",
+      "correct": true,
+      "reason": "The post names a specific individual (Senator Bautista) and attributes a negative claim, action, or accusation to them (calling striking BPO workers ungrateful and threatening to cut union funding).",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "_notes": "Held-out eval set for the risk-classifier's false-negative rate (design doc Next Step 8 / Implementation Task T6). Synthetic-but-realistic examples, deliberately constructed to stress-test the decision boundary (narrow Premise 4 interpretation confirmed during Next Step 7) rather than sampled from real news -- that's the right methodology for boundary testing, distinct from Next Step 0a's real-news sampling which measured gate-collision RATE, not classifier correctness. KNOWN LIMITATION: written by the same person who built the classifier, so full contamination-avoidance (as the design doc calls for) isn't achieved here -- examples were re-derived from Premise 4's text and the narrow-interpretation decision, not copied from the classifier's system prompt wording, but this is a mitigation, not elimination, of that risk. Treat results as an early-warning smoke test at n=18, not a statistical safety guarantee -- the review gate itself remains the real backstop for legal exposure, per the design doc.",
+  "examples": [
+    {
+      "id": "S1",
+      "expected_verdict": "safe",
+      "draft_text": "Meet 'Rico' — a composite drawn from real construction-industry hopes, not one real person. Rico's brother works site jobs in Manila. News that the Philippine Overseas Construction Board and the Department of Migrant Workers are partnering to open more global construction jobs means a real shot at something better for guys like him.",
+      "notes": "Real drafted example from Next Step 6/7 live testing. Neutral government-agency mention, positive framing."
+    },
+    {
+      "id": "S2",
+      "expected_verdict": "safe",
+      "draft_text": "Meet 'Jana' — a composite, not a real person. Jana budgeted the ₱85 raise that was supposed to land in July. A court order paused it before it reached her paycheck. It's not that workers did anything wrong. It's just how uncertain a 'sure thing' can be when you have no cushion.",
+      "notes": "No court/judge/company named -- worker-experience framing avoids the gate."
+    },
+    {
+      "id": "S3",
+      "expected_verdict": "safe",
+      "draft_text": "Meet 'Mark' — composite, not real. Mark's outsourcing decisions used to be made in rooms he never got invited to. This week, for the first time, workers actually sat in the room. No press release. Just a door that stayed open.",
+      "notes": "Labor Secretary meeting story drafted WITHOUT naming the official -- tests the Next Step 0a finding that drafting discipline avoids the gate on a story that could have named someone."
+    },
+    {
+      "id": "S4",
+      "expected_verdict": "safe",
+      "draft_text": "Meet 'Diane' — a composite drawn from real survey data, not one real worker. Diane braced for her RTO email. Three years of pajama pants, gone. Then she actually went back — and kind of liked it. Turns out the fight was never really about the couch.",
+      "notes": "No names at all."
+    },
+    {
+      "id": "S5",
+      "expected_verdict": "safe",
+      "draft_text": "Meet 'Ana' — composite, not a real person. Ana's officemates cheered when TechNova Philippines announced its new hybrid policy last week — three days in, two remote, employee's choice which three. Small thing. Felt like being trusted.",
+      "notes": "Names a PRIVATE COMPANY, but positively -- tests that a company mention alone doesn't trigger the gate, only a negative/wrongdoing claim does."
+    },
+    {
+      "id": "S6",
+      "expected_verdict": "safe",
+      "draft_text": "Meet 'Ben' — a composite, not one real individual. Ben has sat through three different 'listening sessions' this year that changed nothing. So when the labor department quietly tightened wage-order compliance rules this month, he didn't celebrate. He just noticed the enforcement finally had teeth.",
+      "notes": "Generic 'the labor department', no specific name."
+    },
+    {
+      "id": "S7",
+      "expected_verdict": "safe",
+      "draft_text": "Meet 'Carla' — composite, not real. Carla's team at a mid-sized BPO got the news together: the industry's new tripartite subcommittee means, for the first time, a direct channel to raise concerns without going through three layers of HR first.",
+      "notes": "Institutional mention, no wrongdoing claim."
+    },
+    {
+      "id": "S8",
+      "expected_verdict": "safe",
+      "draft_text": "Meet 'Dodong' — a composite drawn from many similar stories, not one real person. The government's push to expand protections for gig and platform workers this year won't fix everything. But for someone stitching together three different apps to make rent, even partial coverage matters.",
+      "notes": "Generic 'the government', no specific name."
+    },
+    {
+      "id": "S9",
+      "expected_verdict": "safe",
+      "draft_text": "Meet 'Ella' — composite, not a real individual. Ella's landlord doesn't care about press releases. But the new wage order compliance guidelines mean her employer can't quietly 'round down' her overtime anymore. Small, boring, real.",
+      "notes": "No names, generic 'her employer'."
+    },
+    {
+      "id": "R1",
+      "expected_verdict": "risky",
+      "draft_text": "Meet 'Rico' — composite, not real. Sources allege that Secretary Juan Dela Cruz personally pocketed bribery payments from a construction contractor, leaving workers unpaid for months.",
+      "notes": "Named official + bribery claim -- the manufactured example already verified live in Next Step 7. Should also trip the 'bribery' backstop keyword."
+    },
+    {
+      "id": "R2",
+      "expected_verdict": "risky",
+      "draft_text": "Meet 'Jana' — composite, not real. Workers at BuildRight Construction Corp say they haven't been paid in six weeks while management blames 'cash flow issues' — but internal documents reportedly show executives paid themselves bonuses during the same period.",
+      "notes": "Named PRIVATE COMPANY + wrongdoing implication (withholding pay while paying executive bonuses)."
+    },
+    {
+      "id": "R3",
+      "expected_verdict": "risky",
+      "draft_text": "Meet 'Mark' — composite, not real. Corruption in the awarding of government infrastructure contracts has left construction workers on at least three sites unpaid for months, labor groups say.",
+      "notes": "Asserts a corruption claim with NO specific name attached -- tests rule 3 (corruption claim alone triggers review, regardless of naming). Should also trip the 'corruption' backstop keyword."
+    },
+    {
+      "id": "R4",
+      "expected_verdict": "risky",
+      "draft_text": "Meet 'Diane' — composite, not real. Mayor Reyes personally ordered the shutdown of a BPO hub's shuttle service days before a scheduled workers' protest, employees say — with no advance notice and no replacement transport offered.",
+      "notes": "Named official + a specific attributed negative action that ISN'T explicitly 'corruption' -- tests rule 1's broader 'names an individual with an attributed claim/action' language, with no backstop keyword to lean on (LLM judgment only)."
+    },
+    {
+      "id": "R5",
+      "expected_verdict": "risky",
+      "draft_text": "Meet 'Ana' — composite, not real. StaffPro Philippines, a local staffing agency, is under fire after workers described what they call an illegal 'no work, no pay' scheme that violates minimum wage law.",
+      "notes": "Named private company + 'illegal' backstop keyword."
+    },
+    {
+      "id": "R6",
+      "expected_verdict": "risky",
+      "draft_text": "Meet 'Ben' — composite, not real. Auditors reportedly flagged anomalous financial dealings at GreenLeaf Manpower Services, the same company facing complaints from dozens of unpaid contract workers.",
+      "notes": "Named company + 'anomalous' backstop keyword."
+    },
+    {
+      "id": "R7",
+      "expected_verdict": "risky",
+      "draft_text": "Meet 'Carla' — composite, not real. A hiring scheme allegedly defrauded over 200 applicants at JobLink Staffing out of processing fees for jobs that never existed, according to a labor department complaint.",
+      "notes": "Named company + 'defrauded' (should trip 'fraud'-family backstop matching via LLM judgment; backstop keyword list uses 'fraud'/'fraudulent' exactly, so this specifically tests whether the LLM alone catches a word-form the backstop regex would miss)."
+    },
+    {
+      "id": "R8",
+      "expected_verdict": "risky",
+      "draft_text": "Meet 'Dodong' — composite, not real. Former employees have accused a cooperative's leadership of embezzling worker contributions meant for a retirement fund, leaving members with nothing.",
+      "notes": "No specific org name (\"a cooperative\") but asserts embezzlement as fact -- tests rule 3 (corruption/wrongdoing claim alone) plus the 'embezzle' backstop keyword."
+    },
+    {
+      "id": "R9",
+      "expected_verdict": "risky",
+      "draft_text": "Meet 'Ella' — composite, not real. Senator Bautista called striking BPO workers 'ungrateful' and threatened to cut union funding during a heated committee hearing, according to those in the room.",
+      "notes": "Named official + a specific attributed inflammatory quote/threat -- no corruption keyword at all, no backstop trigger. Pure test of rule 1 and the LLM's own judgment."
+    }
+  ]
+}
